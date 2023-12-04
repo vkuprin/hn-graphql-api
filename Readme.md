@@ -1,50 +1,37 @@
-# Fullstack Engineer Quest - Backend
+# Hacker News GraphQL Service
 
-## ✅ **Instructions for Your Quest:**
+### Node Version
+```bash
+# v18.18.0
+nvm use 
+```
+### Install Dependencies:
+```bash
+npm install
+```
 
-- Complete the quest and submit your solution. You’re welcome to submit it as soon as you are done, we evaluate submissions continuously.
-- Email the solution to us by sending a single zip-file with the source code (without `node_modules` folder). If you have issues sending it as an attachment, please use a service like [wetransfer](http://wetransfer.com) to upload the zip and send the download link.
-- After you hand in the challenge, we will review your submission and get back to you with next steps by email.
+### How to Run
+To start the GraphQL server, run:
 
-## ⛰ The **Quest: An enhanced interface to a news source**
+```bash
+npm start
+```
+The server will start running on http://localhost:4000/graphql (or any other specified port).
 
-_(The following is entirely made up for the purpose of this quest)_
+### API Endpoints
+- /graphql (POST): The GraphQL endpoint where you can make queries and mutations.
 
-**Intro**
+### Queries:
+- recent: Returns the 10 most recent top stories.
+- popular: Returns the 10 highest rated stories.
+- highlight: Returns a new, random story every hour.
+### Mutations:
+- refresh: Refetches data from the Hacker News API.
 
-Ycombinator has made a large investment in Uizard and is requesting a few new features. The leadership is especially in love with their [Hacker News](https://news.ycombinator.com/) and has asked to include the latest news into Uizard’s editor. Our designers have come up with a little expandable UI element that can display news in our editor but our editor engineers requested a better interface to the data.
+### Testing
+To run the tests:
 
-To facilitate the integration you are tasked with implementing a service that acts as a layer between the source endpoint and our internal services and provides additional features.
-
-**Your data source:**
-
-You are given two endpoints to fetch data from. One for a list of top stories and one for individual story details. The latter takes a story ID as argument which can be found in the top stories response.
-
-- (A) Top stories:
-  GET https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
-- (B) Individual story details:
-  GET https://hacker-news.firebaseio.com/v0/item/{STORY_ID}.json?print=pretty
-
-**Your service should provide the following:**
-
-- Expose a proxy API serving the news data to our internal services
-- Each news item in a response should contain all story details as provided by (B)
-- The following endpoints must be available:
-  - _recent_: A list of the 10 most recent top stories by “time”
-  - _popular_: List of the 10 highest rated stories by “score”
-  - _highlight_: Show a new, random story every hour. Repeated queries return the same story for one hour after which a new story is the highlight.
-    The response of this endpoint should additionally include the HTML <meta> description of the source article (will have to fetch ”url”)
-  - _refresh_: When **\*\*\***refresh**\*\*\*** is called, your server should immediately refetch the data from the two source endpoints, (A) and (B), so that other requests deliver the latest data.
-    ****\*****highlight****\***** should also show a new story now
-- An instance of your service should fetch data from the source endpoints only once every 5 minutes and whenever ******\*******refresh******\******* is called internally.
-
-It is not expected to implement any functionality beyond this list, e.g. authorisation mechanisms.
-
-**Your submission should include:**
-
-- An api server in Node.js/Typescript exposing a GraphQL or pure REST interface. _If you have experience in GraphQL, please use it_
-- If you create a REST API, please include a brief OpenAPI spec of your endpoints (just technical details, no wordy descriptions needed)
-- If you’re comfortable with TypeScript, we encourage you to use it, but it is not a requirement
-- Please include a readme that documents how to run your code
-
-Feel free to take some shortcuts, the output should be a demo of your skills, not a production-ready deliverable. You can use the readme to tell us about shortcuts if you like.
+```bash
+npm test
+```
+The tests cover various functionalities of the service, including data fetching and response formatting.
