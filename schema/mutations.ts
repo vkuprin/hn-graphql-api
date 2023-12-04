@@ -1,12 +1,16 @@
 import { GraphQLObjectType, GraphQLBoolean } from "graphql";
 import { fetchTopStoriesIfNeeded } from "../src/services/hackerNewsAPI";
 
-let lastFetchTime = 0; // Reset this variable to force refetch
+const lastFetchTime = 0;
 
 const refresh = {
   type: GraphQLBoolean,
   resolve: async () => {
-    lastFetchTime = 0;
+    const currentTime = Date.now();
+    if (currentTime - lastFetchTime < 300000) {
+      // 5 minutes
+      return false;
+    }
     await fetchTopStoriesIfNeeded();
     return true;
   },

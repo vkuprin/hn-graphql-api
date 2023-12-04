@@ -1,4 +1,8 @@
-import { fetchTopStoriesIfNeeded, getTopStories, getStoryDetails } from "../../services/hackerNewsAPI";
+import {
+  fetchTopStoriesIfNeeded,
+  getTopStories,
+  getStoryDetails,
+} from "../../services/hackerNewsAPI";
 
 describe("Hacker News API - fetchTopStoriesIfNeeded", () => {
   it("should return an array of story IDs", async () => {
@@ -8,9 +12,9 @@ describe("Hacker News API - fetchTopStoriesIfNeeded", () => {
   });
 
   it("should return the same array of story IDs if called within 5 minutes", async () => {
-      const storyIds1 = await fetchTopStoriesIfNeeded();
-      const storyIds2 = await fetchTopStoriesIfNeeded();
-      expect(storyIds1).toEqual(storyIds2);
+    const storyIds1 = await fetchTopStoriesIfNeeded();
+    const storyIds2 = await fetchTopStoriesIfNeeded();
+    expect(storyIds1).toEqual(storyIds2);
   });
 });
 
@@ -34,10 +38,10 @@ describe("Hacker News API - getStoryDetails", () => {
     expect(story).toHaveProperty("by");
   });
 
-    it("should return the same story object if called again", async () => {
-        const storyIds = await getTopStories();
-        const story1 = await getStoryDetails(storyIds[0]);
-        const story2 = await getStoryDetails(storyIds[0]);
-        expect(story1).toEqual(story2);
-    });
+  it("should return the same story object if called again", async () => {
+    const storyIds = await getTopStories();
+    const story1 = await getStoryDetails(storyIds[0]);
+    const story2 = await getStoryDetails(storyIds[0]);
+    expect(story1).toEqual(story2);
+  });
 });

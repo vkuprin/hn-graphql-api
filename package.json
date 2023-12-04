@@ -7,7 +7,8 @@
     "test": "jest",
     "dev": "nodemon --exec ts-node index.ts",
     "start": "ts-node index.ts",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "zip": "git archive --format=zip -o bundle.zip HEAD"
   },
   "engines": {
     "node": "^18.18.0"
