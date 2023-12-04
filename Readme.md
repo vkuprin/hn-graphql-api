@@ -8,7 +8,7 @@
 
 ## ⛰ The **Quest: An enhanced interface to a news source**
 
-*(The following is entirely made up for the purpose of this quest)*
+_(The following is entirely made up for the purpose of this quest)_
 
 **Intro**
 
@@ -30,19 +30,19 @@ You are given two endpoints to fetch data from. One for a list of top stories an
 - Expose a proxy API serving the news data to our internal services
 - Each news item in a response should contain all story details as provided by (B)
 - The following endpoints must be available:
-    - *recent*: A list of the 10 most recent top stories by “time”
-    - *popular*: List of the 10 highest rated stories by “score”
-    - *highlight*: Show a new, random story every hour. Repeated queries return the same story for one hour after which a new story is the highlight.
-      The response of this endpoint should additionally include the HTML <meta> description of the source article (will have to fetch ”url”)
-    - *refresh*: When *******refresh******* is called, your server should immediately refetch the data from the two source endpoints, (A) and (B), so that other requests deliver the latest data.
-      *********highlight********* should also show a new story now
-- An instance of your service should fetch data from the source endpoints only once every 5 minutes and whenever *************refresh************* is called internally.
+  - _recent_: A list of the 10 most recent top stories by “time”
+  - _popular_: List of the 10 highest rated stories by “score”
+  - _highlight_: Show a new, random story every hour. Repeated queries return the same story for one hour after which a new story is the highlight.
+    The response of this endpoint should additionally include the HTML <meta> description of the source article (will have to fetch ”url”)
+  - _refresh_: When **\*\*\***refresh**\*\*\*** is called, your server should immediately refetch the data from the two source endpoints, (A) and (B), so that other requests deliver the latest data.
+    ****\*****highlight****\***** should also show a new story now
+- An instance of your service should fetch data from the source endpoints only once every 5 minutes and whenever ******\*******refresh******\******* is called internally.
 
 It is not expected to implement any functionality beyond this list, e.g. authorisation mechanisms.
 
 **Your submission should include:**
 
-- An api server in Node.js/Typescript exposing a GraphQL or pure REST interface. *If you have experience in GraphQL, please use it*
+- An api server in Node.js/Typescript exposing a GraphQL or pure REST interface. _If you have experience in GraphQL, please use it_
 - If you create a REST API, please include a brief OpenAPI spec of your endpoints (just technical details, no wordy descriptions needed)
 - If you’re comfortable with TypeScript, we encourage you to use it, but it is not a requirement
 - Please include a readme that documents how to run your code

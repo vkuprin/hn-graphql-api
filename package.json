@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "nodemon --exec ts-node index.ts",
+    "start": "ts-node index.ts",
+    "prettier": "prettier . --write"
   },
   "engines": {
     "node": "^18.18.0"

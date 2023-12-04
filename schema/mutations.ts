@@ -9,8 +9,8 @@ const refresh = {
     lastFetchTime = 0;
     await fetchTopStoriesIfNeeded();
     return true;
-  }
-}
+  },
+};
 
 export const MutationType = new GraphQLObjectType({
   name: "Mutation",
